@@ -1,10 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const VerseGenerator = () => {
+  const location = useLocation();
   const canvasRef = useRef(null);
   const [style, setStyle] = useState('navy'); // navy, gold, purple
   
-  const verse = {
+  const saintData = location.state?.saint;
+  const type = saintData ? 'saint' : 'verse';
+
+  const content = type === 'saint' ? {
+    text: saintData.specialPrayer || saintData.history.substring(0, 150) + "...",
+    ref: saintData.name
+  } : {
     text: "El Señor es mi pastor, nada me falta. En verdes pastos me hace descansar.",
     ref: "Salmo 23, 1-2"
   };
@@ -42,7 +50,7 @@ const VerseGenerator = () => {
     ctx.fillStyle = currentStyle.text;
     ctx.font = 'italic 45px Lora, serif';
     
-    const words = verse.text.split(' ');
+    const words = content.text.split(' ');
     let line = '';
     let y = canvas.height / 2 - 40;
     const maxWidth = canvas.width - 200;
@@ -65,7 +73,7 @@ const VerseGenerator = () => {
     // Referencia
     ctx.fillStyle = currentStyle.accent;
     ctx.font = 'bold 35px Inter, sans-serif';
-    ctx.fillText(verse.ref, canvas.width / 2, y + 100);
+    ctx.fillText(content.ref, canvas.width / 2, y + 100);
 
     // Marca de agua
     ctx.fillStyle = 'rgba(255,255,255,0.3)';
@@ -80,7 +88,7 @@ const VerseGenerator = () => {
   const downloadImage = () => {
     const canvas = canvasRef.current;
     const link = document.createElement('a');
-    link.download = `LuzCatolica_Bendicion_${new Date().toLocaleDateString()}.png`;
+    link.download = `LuzCatolica_${type === 'saint' ? 'Santo' : 'Bendicion'}_${new Date().toLocaleDateString()}.png`;
     link.href = canvas.toDataURL('image/png');
     link.click();
   };

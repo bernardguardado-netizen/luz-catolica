@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AudioReader from './AudioReader';
 
 const SaintsHistory = () => {
+  const navigate = useNavigate();
   const [saintsData, setSaintsData] = useState([]);
   const [selectedSaint, setSelectedSaint] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -99,14 +101,20 @@ const SaintsHistory = () => {
             </p>
           )}
 
-          {selectedSaint.specialPrayer && (
             <div style={{ marginTop: 'var(--spacing-xl)', padding: 'var(--spacing-lg)', borderTop: '4px solid var(--color-accent)', backgroundColor: 'var(--color-surface)', borderRadius: 'var(--border-radius-sm)' }}>
               <h4 style={{ fontSize: 'var(--text-xl)', color: 'var(--color-primary)', marginTop: 0 }}>Oración o Frase Especial</h4>
-              <p style={{ fontSize: 'var(--text-lg)', fontStyle: 'italic', marginBottom: 0 }}>
+              <p style={{ fontSize: 'var(--text-lg)', fontStyle: 'italic', marginBottom: 'var(--spacing-md)' }}>
                 "{selectedSaint.specialPrayer}"
               </p>
+              <button 
+                className="btn btn-primary" 
+                onClick={() => navigate('/compartir', { state: { saint: selectedSaint } })}
+                style={{ width: '100%', marginTop: 'var(--spacing-md)' }}
+              >
+                🖼️ Generar Tarjeta de este Santo
+              </button>
             </div>
-          )}
+
         </div>
       </div>
     );
