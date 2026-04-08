@@ -1,0 +1,201 @@
+:root {
+  /* Paleta de Colores de Alto Contraste - Inspirada en la Liturgia y serenidad */
+  --color-primary: #0A2342; /* Azul marino profundo */
+  --color-accent: #D4AF37; /* Dorado litúrgico */
+  --color-bg: #FDFBF7; /* Blanco perla/crema, suave a la vista */
+  --color-surface: #FFFFFF;
+  --color-text-main: #1A1A1A; /* Negro suave para excelente contraste */
+  --color-text-muted: #4A5568; 
+  --color-border: #E2E8F0;
+  
+  /* Gradientes */
+  --gradient-glass: rgba(255, 255, 255, 0.85);
+
+  /* Tipografía */
+  --font-heading: 'Lora', serif; /* Letra con serifa, elegante y espiritual */
+  --font-body: 'Inter', sans-serif; /* Alta legibilidad, ideal para adultos mayores */
+
+  /* Tamaños de Fuente aumentados para legibilidad con multiplicador de accesibilidad */
+  --text-xs: calc(1rem * var(--font-multiplier, 1));
+  --text-sm: calc(1.125rem * var(--font-multiplier, 1));
+  --text-base: calc(1.25rem * var(--font-multiplier, 1)); /* Base = 20px */
+  --text-lg: calc(1.5rem * var(--font-multiplier, 1));
+  --text-xl: calc(1.875rem * var(--font-multiplier, 1));
+  --text-2xl: calc(2.25rem * var(--font-multiplier, 1));
+  --text-3xl: calc(3rem * var(--font-multiplier, 1));
+
+  /* Espaciado */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Bordes y Sombras */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-glass: 0 8px 32px 0 rgba(10, 35, 66, 0.05);
+
+  /* Transiciones */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modo Responsivo - Celulares */
+@media screen and (max-width: 768px) {
+  :root {
+    --text-base: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.25rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+  }
+}
+
+/* Modo oscuro manual exclusivo */
+
+:root.dark-theme {
+  --color-primary: #9DB4C0;
+  --color-bg: #050B14;
+  --color-surface: #111A24;
+  --color-text-main: #F1F5F9;
+  --color-text-muted: #CBD5E1;
+  --color-border: #1E293B;
+  --color-accent: #E5C158;
+  --gradient-glass: rgba(17, 26, 36, 0.85);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-glass);
+  padding: var(--spacing-xl);
+}
+
+:root.dark-theme .glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-center: center;
+}
+
+/* Botones claros y accesibles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+}
+
+:root.dark-theme .btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-primary) !important;
+}
+:root.dark-theme .btn-primary:hover {
+  background-color: #F3CA63;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
