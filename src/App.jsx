@@ -12,6 +12,7 @@ import AccessWidget from './components/AccessWidget'
 import Legal from './components/Legal'
 import VerseGenerator from './components/VerseGenerator'
 import ExamenConciencia from './components/ExamenConciencia'
+import CatholicNews from './components/CatholicNews'
 import './index.css'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/legal" element={<Legal />} />
           <Route path="/compartir" element={<VerseGenerator />} />
           <Route path="/examen" element={<ExamenConciencia />} />
+          <Route path="/noticias" element={<CatholicNews />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: 'var(--spacing-md)', color: 'var(--color-primary)', borderTop: '1px solid var(--color-border)' }}>

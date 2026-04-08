@@ -98,6 +98,16 @@ const Dashboard = () => {
             Ver Oraciones
           </button>
         </div>
+
+        <div className="glass-panel text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', borderTop: '5px solid #2ecc71' }}>
+          <h3>Noticias de la Iglesia</h3>
+          <p style={{ fontSize: 'var(--text-lg)', marginBottom: 'var(--spacing-lg)', flexGrow: 1 }}>
+            Mantente al día con lo que sucede en el Vaticano y el mundo católico.
+          </p>
+          <button className="btn btn-primary" onClick={() => navigate('/noticias')}>
+            Ver Actualidad
+          </button>
+        </div>
       </div>
       
     </div>
