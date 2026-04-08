@@ -110,7 +110,11 @@ const CatholicNews = () => {
         />
         
         <span style={{ fontSize: 'var(--text-sm)', color: 'var(--color-accent)', fontWeight: 'bold' }}>{selectedArticle.pubDate}</span>
-        <h2 style={{ fontSize: 'var(--text-3xl)', marginBottom: 'var(--spacing-xl)', color: 'var(--color-primary)' }}>{selectedArticle.title}</h2>
+        <h2 style={{ fontSize: 'var(--text-3xl)', marginBottom: 'var(--spacing-md)', color: 'var(--color-primary)' }}>{selectedArticle.title}</h2>
+        
+        <div style={{ marginBottom: 'var(--spacing-xl)' }}>
+          <AudioReader title={selectedArticle.title} text={selectedArticle.fullText || selectedArticle.description} />
+        </div>
         
         {loadingStory ? (
           <div style={{ textAlign: 'center', padding: 'var(--spacing-xxl)' }}>
@@ -138,9 +142,9 @@ const CatholicNews = () => {
         </h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-md)', alignItems: 'center' }}>
             <p style={{ fontSize: 'var(--text-lg)', color: 'var(--color-text-muted)', margin: 0 }}>
-            Últimas noticias desde el Vaticano.
+            Actualidad desde el Vaticano y el mundo católico.
             </p>
-            <button key="refresh" onClick={fetchNews} className="btn" style={{ padding: '4px 8px', fontSize: '10px' }}>🔄 Actualizar</button>
+            <button key="refresh" onClick={fetchNews} className="btn" style={{ padding: '6px 12px', fontSize: '12px', border: '1px solid var(--color-primary)', fontWeight: 'bold' }}>🔄 Actualizar canal en vivo</button>
         </div>
       </div>
 

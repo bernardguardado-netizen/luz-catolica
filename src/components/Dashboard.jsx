@@ -8,6 +8,10 @@ const Dashboard = () => {
   React.useEffect(() => {
     document.title = "Luz Católica - Oración, Fe y Guía Espiritual";
     fetchTopNews();
+    
+    // Revisar noticias nuevas automáticamente cada 15 minutos
+    const interval = setInterval(fetchTopNews, 15 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const fetchTopNews = async () => {
