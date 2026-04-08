@@ -41,7 +41,15 @@ const Legal = () => {
           <li style={{ marginLeft: 'var(--spacing-lg)' }}>Evitar que te salgan notificaciones legales repetitivamente en futuras visitas.</li>
         </ul>
 
-        <h3 style={{ fontSize: 'var(--text-2xl)', color: 'var(--color-primary)', marginTop: 'var(--spacing-xl)' }}>4. Datos Personales en el Muro de Intenciones</h3>
+        <h3 style={{ fontSize: 'var(--text-2xl)', color: 'var(--color-primary)', marginTop: 'var(--spacing-xl)' }}>4. Publicidad y Terceros (Google AdSense)</h3>
+        <p>
+          Este sitio web utiliza Google AdSense, un servicio de publicidad proporcionado por Google, Inc. AdSense utiliza "cookies" para mostrar anuncios basados en las visitas anteriores del usuario a este u otros sitios web.
+        </p>
+        <p>
+          Los usuarios pueden inhabilitar la publicidad personalizada visitando la Configuración de anuncios de Google. Bernardo Guardado López no tiene control sobre las cookies que Google AdSense utiliza para mostrar publicidad personalizada.
+        </p>
+
+        <h3 style={{ fontSize: 'var(--text-2xl)', color: 'var(--color-primary)', marginTop: 'var(--spacing-xl)' }}>5. Datos Personales en el Muro de Intenciones</h3>
         <p>
           El "Muro de Intenciones" consta de participación libre, comunitaria y pública (apoyado mediante Google Firebase). Te solicitamos no proporcionar nombres completos identificables, datos bancarios, domicilios u otra información sensible. Toda la información enviada al muro pasa a ser de carácter de publicación anónima general.
         </p>
