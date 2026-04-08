@@ -12,7 +12,6 @@ import AccessWidget from './components/AccessWidget'
 import Legal from './components/Legal'
 import VerseGenerator from './components/VerseGenerator'
 import ExamenConciencia from './components/ExamenConciencia'
-import RadioPlayer from './components/RadioPlayer'
 import './index.css'
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
           <Route path="/examen" element={<ExamenConciencia />} />
         </Routes>
       </main>
-      <RadioPlayer />
       <footer style={{ textAlign: 'center', padding: 'var(--spacing-md)', color: 'var(--color-primary)', borderTop: '1px solid var(--color-border)' }}>
         <p style={{ fontSize: 'var(--text-base)', marginBottom: 'var(--spacing-sm)' }}>Luz Católica - Hecho con amor para la comunidad.</p>
         <Link to="/legal" style={{ display: 'inline-block', fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)', textDecoration: 'underline' }}>
