@@ -3,14 +3,45 @@ import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [topNews, setTopNews] = React.useState([]);
 
   React.useEffect(() => {
     document.title = "Luz Católica - Oración, Fe y Guía Espiritual";
+    fetchTopNews();
   }, []);
+
+  const fetchTopNews = async () => {
+    try {
+      const rssUrl = encodeURIComponent('https://www.vaticannews.va/es.rss.xml');
+      const response = await fetch(`https://api.allorigins.win/get?url=${rssUrl}`);
+      const data = await response.json();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+      const items = xmlDoc.querySelectorAll("item");
+      const newsItems = Array.from(items).slice(0, 3).map(item => ({
+        title: item.querySelector("title")?.textContent,
+        link: item.querySelector("link")?.textContent
+      }));
+      setTopNews(newsItems);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="flex flex-col animate-fade-in" style={{ gap: 'var(--spacing-xl)' }}>
       
+      {/* Última Hora Ticker */}
+      {topNews.length > 0 && (
+        <div style={{ backgroundColor: 'var(--color-primary)', color: 'white', padding: '10px', borderRadius: 'var(--border-radius-sm)', display: 'flex', alignItems: 'center', gap: '15px', overflow: 'hidden' }}>
+          <span style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', padding: '2px 8px', borderRadius: '4px', fontSize: '12px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>ÚLTIMA HORA</span>
+          <div style={{ flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '14px' }}>
+            {topNews[0].title}
+          </div>
+          <button onClick={() => navigate('/noticias')} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.3)', color: 'white', fontSize: '11px', padding: '2px 10px', borderRadius: '15px', cursor: 'pointer' }}>Ver más</button>
+        </div>
+      )}
+
       <section className="glass-panel" style={{ borderTop: '6px solid var(--color-accent)' }}>
         <h2 style={{ fontSize: 'var(--text-2xl)' }}>Versículo de Hoy</h2>
         <p style={{ fontSize: 'var(--text-xl)', fontStyle: 'italic', marginBottom: 'var(--spacing-md)' }}>
