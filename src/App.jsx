@@ -10,6 +10,8 @@ import SaintsHistory from './components/SaintsHistory'
 import Advisor from './components/Advisor'
 import AccessWidget from './components/AccessWidget'
 import Legal from './components/Legal'
+import VerseGenerator from './components/VerseGenerator'
+import ExamenConciencia from './components/ExamenConciencia'
 import './index.css'
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/santos" element={<SaintsHistory />} />
           <Route path="/consejero" element={<Advisor />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/compartir" element={<VerseGenerator />} />
+          <Route path="/examen" element={<ExamenConciencia />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: 'var(--spacing-md)', color: 'var(--color-primary)', borderTop: '1px solid var(--color-border)' }}>

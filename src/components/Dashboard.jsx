@@ -17,15 +17,27 @@ const Dashboard = () => {
           "El Señor es mi pastor, nada me falta. En verdes pastos me hace descansar."
         </p>
         <span style={{ fontSize: 'var(--text-lg)', fontWeight: 'bold', color: 'var(--color-primary)' }}>- Salmo 23, 1-2</span>
-        <div style={{ marginTop: 'var(--spacing-lg)' }}>
+        <div style={{ marginTop: 'var(--spacing-lg)', display: 'flex', gap: 'var(--spacing-sm)', flexWrap: 'wrap' }}>
           <button className="btn" onClick={() => navigate('/evangelio')} style={{ padding: '0.5rem 1rem', fontSize: 'var(--text-sm)', border: '1px solid var(--color-primary)', background: 'transparent', color: 'var(--color-primary)' }}>
-            Leer Evangelio y Santoral Completo
+            Leer Evangelio y Santoral
+          </button>
+          <button className="btn btn-primary" onClick={() => navigate('/compartir')} style={{ padding: '0.5rem 1rem', fontSize: 'var(--text-sm)' }}>
+            🖼️ Generar Tarjeta de Bendición
           </button>
         </div>
       </section>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--spacing-lg)' }}>
         
+        <div className="glass-panel text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', borderTop: '5px solid var(--color-accent)' }}>
+          <h3>Guía para la Confesión</h3>
+          <p style={{ fontSize: 'var(--text-lg)', marginBottom: 'var(--spacing-lg)', flexGrow: 1 }}>
+            Prepárate espiritualmente con un examen de conciencia privado y compasivo basado en los mandamientos.
+          </p>
+          <button className="btn btn-primary" onClick={() => navigate('/examen')}>
+            Comenzar Examen
+          </button>
+        </div>
         <div className="glass-panel text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', borderTop: '5px solid var(--color-primary)' }}>
           <h3>Guía Espiritual</h3>
           <p style={{ fontSize: 'var(--text-lg)', marginBottom: 'var(--spacing-lg)', flexGrow: 1 }}>
