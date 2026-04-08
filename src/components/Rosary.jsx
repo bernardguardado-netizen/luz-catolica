@@ -11,6 +11,10 @@ const misterios = [
 const Rosary = () => {
   const [paso, setPaso] = useState(0);
 
+  React.useEffect(() => {
+    document.title = "Rezar el Santo Rosario Paso a Paso - Misterios de Hoy | Luz Católica";
+  }, []);
+
   const siguiente = () => {
     if (paso < misterios.length) {
       setPaso(paso + 1);

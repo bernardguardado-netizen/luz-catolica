@@ -6,6 +6,10 @@ const Gospel = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "Evangelio de Hoy - Lectura Litúrgica Diaria | Luz Católica";
+  }, []);
+
+  useEffect(() => {
     const fetchGospel = async () => {
       try {
         const today = new Date();

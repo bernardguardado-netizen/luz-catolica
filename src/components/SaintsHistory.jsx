@@ -8,6 +8,14 @@ const SaintsHistory = () => {
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
 
+  useEffect(() => {
+    if (selectedSaint) {
+      document.title = `${selectedSaint.name} - Biografía y Oración | Luz Católica`;
+    } else {
+      document.title = "Directorio de Santos Católicos - Luz Católica";
+    }
+  }, [selectedSaint]);
+
   // Cargar datos estáticos desde el servidor
   useEffect(() => {
     const fetchSaints = async () => {

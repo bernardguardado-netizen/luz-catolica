@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom'
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    document.title = "Luz Católica - Oración, Fe y Guía Espiritual";
+  }, []);
+
   return (
     <div className="flex flex-col animate-fade-in" style={{ gap: 'var(--spacing-xl)' }}>
       
