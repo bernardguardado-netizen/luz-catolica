@@ -10,7 +10,6 @@ import SaintsHistory from './components/SaintsHistory'
 import Advisor from './components/Advisor'
 import AccessWidget from './components/AccessWidget'
 import Legal from './components/Legal'
-import CookieBanner from './components/CookieBanner'
 import './index.css'
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
           <Route path="/legal" element={<Legal />} />
         </Routes>
       </main>
-      <CookieBanner />
       <footer style={{ textAlign: 'center', padding: 'var(--spacing-md)', color: 'var(--color-primary)', borderTop: '1px solid var(--color-border)' }}>
         <p style={{ fontSize: 'var(--text-base)', marginBottom: 'var(--spacing-sm)' }}>Luz Católica - Hecho con amor para la comunidad.</p>
         <Link to="/legal" style={{ display: 'inline-block', fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)', textDecoration: 'underline' }}>
